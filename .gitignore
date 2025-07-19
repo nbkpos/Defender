@@ -1,0 +1,7 @@
+password.json
+users.json
+tx_history.json
+.env
+*.key
+*.pem
+secret_config/
