@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payout Method - BLACK ROCK Pay</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #191919; color: #ffd6d6;}
+    .glass-card { background:rgba(34,34,34,0.92); border-radius:26px; padding:36px; max-width:400px; margin:60px auto;}
+    .btn { background:#d32f2f; color:#fff; border-radius:12px;}
+  </style>
+</head>
+<body>
+  <div class="glass-card">
+    <h3>Choose Payout Method</h3>
+    <form method="POST">
+      <select name="method" class="form-select mb-3" required>
+        <option value="ERC20">ERC20 (Ethereum)</option>
+        <option value="TRC20">TRC20 (Tron)</option>
+      </select>
+      <input type="text" name="erc20_wallet" class="form-control mb-3" placeholder="ERC20 Wallet (0x...)" style="display:none;">
+      <input type="text" name="trc20_wallet" class="form-control mb-3" placeholder="TRC20 Wallet (T...)" style="display:none;">
+      <button type="submit" class="btn w-100">Next</button>
+    </form>
+    <script>
+      document.querySelector('select[name="method"]').addEventListener('change', function() {
+        document.querySelector('input[name="erc20_wallet"]').style.display = this.value === 'ERC20' ? 'block' : 'none';
+        document.querySelector('input[name="trc20_wallet"]').style.display = this.value === 'TRC20' ? 'block' : 'none';
+      });
+    </script>
+  </div>
+</body>
+</html>
