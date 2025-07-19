@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: blackrock-pay
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        value: blackrock_secret_key_8583
+    autoDeploy: true
